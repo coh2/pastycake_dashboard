@@ -25,7 +25,11 @@ def _setup_security(appobj):
                             owned')
 
 if len(sys.argv) > 1:
-    conffile = os.path.isabs(sys.argv[1]) or os.path.abspath(sys.argv[1])
+    conffile = sys.argv[1]
+
+    if not os.path.isabs(conffile):
+        conffile = os.path.abspath(conffile)
+
     app.config.from_pyfile(conffile)
 
 _setup_security(app)
