@@ -24,13 +24,19 @@ def _setup_security(appobj):
         raise RuntimeError('public facing + debug enabled = you WILL get \
                             owned')
 
-if len(sys.argv) > 1:
-    conffile = sys.argv[1]
 
-    if not os.path.isabs(conffile):
-        conffile = os.path.abspath(conffile)
+def main():
+    '''main routine to setup required stuff and run the app'''
+    if len(sys.argv) > 1:
+        conffile = sys.argv[1]
 
-    app.config.from_pyfile(conffile)
+        if not os.path.isabs(conffile):
+            conffile = os.path.abspath(conffile)
 
-_setup_security(app)
-app.run(host=app.config.get('HOST', '127.0.0.1'))
+        app.config.from_pyfile(conffile)
+
+    _setup_security(app)
+    app.run(host=app.config.get('HOST', '127.0.0.1'))
+
+
+main()
