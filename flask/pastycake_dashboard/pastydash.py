@@ -8,4 +8,4 @@ import crypto
 
 @app.route('/')
 def main():
-    return render_template('index.html', data={})
+    return render_template('index.html')
