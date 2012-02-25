@@ -1,0 +1,19 @@
+{% if matches %}
+{% for match in matches %}
+<article class="match">
+    <aside class="meta">
+        <h2><a href="{{match.source_link}}"
+                target="_blank">{{match.matcher_expression}}</a></h2>
+    </aside>
+    <blockquote>
+        {% if match.paste %}
+        <pre>
+        {{match.paste|escape}}
+        </pre>
+        {% else %}
+        <p>{{match.match|escape}}</p>
+        {% endif %}
+    </blockquote>
+</article>
+{% endfor %}
+{% endif %}
