@@ -3,7 +3,7 @@
 <article class="match">
     <aside class="meta">
         <h2><a href="{{match.source_link}}"
-                target="_blank">{{match.match_expression}}</a></h2>
+                target="_blank">{{match.match_expression|escape}}</a></h2>
     </aside>
     <blockquote>
         {% if match.paste %}
