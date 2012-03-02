@@ -1,10 +1,13 @@
 '''main component of the dashboard'''
 from flask import render_template, jsonify, request
 
-from . import app
-
 import datetime
 import sqlite3
+
+# this imports is needed for routing and setup purposes
+import pastycake_dashboard.crypto
+
+from . import app
 
 
 def _sqlite_conn(with_cursor=True):
@@ -58,3 +61,8 @@ def latest():
 
     res = jsonify(data)
     return res
+
+
+@app.route('/keywords', methods=['GET', 'POST'])
+def keywords():
+    return render_template('kw_form.html', keywords={})

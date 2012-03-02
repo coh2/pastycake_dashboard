@@ -52,7 +52,7 @@ def csrf_protect():
             flask.abort(403)
 
 
-def new_csrf_token(field):
+def new_csrf_token(field='_csrf_update'):
     '''create a new CSRF token.
 
     make the session-stored piece different from the field one by
